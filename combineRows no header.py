@@ -16,14 +16,14 @@ fileNumInFolder = len(folderDir)
 try:
     newFile = open(fullFolderPath + "!All " + folderName + ".txt", "x")
 except FileExistsError:
-    print("File already exists")
+    print("File already exists, delete !All " + folderName + ".txt from the folder")
     quit()
 
 for file in folderDir:
     readFile = open(fullFolderPath + file, "r")
     fileData = readFile.readlines()
     newFile.writelines(fileData)
-    newFile.writelines("\n")
+    #newFile.writelines("\n") # this is not needed if the rows already exported have a break line code as it will cause an extra line to appear
     readFile.close()
     
 newFile.close()

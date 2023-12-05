@@ -22,13 +22,13 @@ firstLoop = True
 for i in range(1, numberOfFiles + 1):
     try:
         if firstLoop:
-            header = fileData[0:1]
+            header = fileData[0:1] # change 1 to the number of rows the header is
             firstLoop = False
 
         newFile = open(fullFolderPath + str(fileNum) + fileName + ".txt", "x")
         newFile.writelines(header)
-        newFile.writelines(fileData[1 + (rowCount * (i-1)):(rowCount * i) + 1])
-        newFile.close()
+        newFile.writelines(fileData[1 + (rowCount * (i-1)):(rowCount * i) + 1]) # "[{1} + (rowCount * (i-1)):(rowCount * i) + {1}]"
+        newFile.close()                                                         #  change the "{1}" to the number of rows the header is
     except FileExistsError:
         print("File already exists")
         break

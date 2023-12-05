@@ -16,7 +16,7 @@ fileNumInFolder = len(folderDir)
 try:
     newFile = open(fullFolderPath + "!All " + folderName + ".txt", "x")
 except FileExistsError:
-    print("File already exists")
+    print("File already exists, delete !All " + folderName + ".txt from the folder")
     quit()
 
 firstLoop = True
@@ -29,9 +29,9 @@ for file in folderDir:
         newFile.writelines(fileData)
         firstLoop = False
     else:
-        newFile.writelines(fileData[1:len(fileData)])
+        newFile.writelines(fileData[1:len(fileData)]) # change the number on this line for amount of header lines
         
-    newFile.writelines("\n")
+    #newFile.writelines("\n") # this is not needed if the rows already exported have a break line code as it will cause an extra line to appear
     readFile.close()
     
 newFile.close()
